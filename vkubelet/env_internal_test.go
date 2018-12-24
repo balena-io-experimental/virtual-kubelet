@@ -385,6 +385,7 @@ func TestEnvFromInexistentConfigMaps(t *testing.T) {
 
 	missingConfigMap1Name := "missing-config-map-1"
 	missingConfigMap2Name := "missing-config-map-2"
+	missingConfigMap3Name := "missing-config-map-3"
 
 	// Create a pod object having a single container.
 	// The container's environment is to be populated from two configmaps that do not exist.
@@ -415,6 +416,15 @@ func TestEnvFromInexistentConfigMaps(t *testing.T) {
 								Optional: &bFalse,
 							},
 						},
+						{
+							ConfigMapRef: &corev1.ConfigMapEnvSource{
+								LocalObjectReference: corev1.LocalObjectReference{
+									Name: missingConfigMap3Name,
+								},
+								// This scenario has been observed before https://github.com/virtual-kubelet/virtual-kubelet/issues/444#issuecomment-449611851.
+								Optional: nil,
+							},
+						},
 					},
 				},
 			},
@@ -441,6 +451,7 @@ func TestEnvFromInexistentSecrets(t *testing.T) {
 
 	missingSecret1Name := "missing-secret-1"
 	missingSecret2Name := "missing-secret-2"
+	missingSecret3Name := "missing-secret-3"
 
 	// Create a pod object having a single container.
 	// The container's environment is to be populated from two secrets that do not exist.
@@ -469,6 +480,15 @@ func TestEnvFromInexistentSecrets(t *testing.T) {
 								},
 								// The secret reference is mandatory.
 								Optional: &bFalse,
+							},
+						},
+						{
+							SecretRef: &corev1.SecretEnvSource{
+								LocalObjectReference: corev1.LocalObjectReference{
+									Name: missingSecret3Name,
+								},
+								// This scenario has been observed before https://github.com/virtual-kubelet/virtual-kubelet/issues/444#issuecomment-449611851.
+								Optional: nil,
 							},
 						},
 					},
