@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "bmocha": "^0.1.8"
+  },
+  "main": "./lib/main.js",
+  "scripts": {
+    "test": "bmocha test/*.js"
+  },
+  "name": "web-balena",
+  "version": "1.0.0",
+  "description": "balena.io's virtual kubelet",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "/lib"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balena-io-playground/virtual-kubelet.git"
+  },
+  "author": "Marios Balamatsias <mbalamatsias@gmail.com>",
+  "license": "Apache-2.0"
+}
