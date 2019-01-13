@@ -2,4 +2,9 @@ function defaultRoute() {
   return 'Balena Kubelet'
 }
 
-module.exports.defaultRoute = defaultRoute
+function createPod() {
+  //TODO
+  return true
+}
+
+module.exports = { defaultRoute, createPod}
