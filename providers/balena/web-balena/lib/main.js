@@ -47,10 +47,24 @@ app.get('/capacity', function (req, res) {
 
 // Should be implemented in order not to panic
 app.get('/nodeConditions', function (req, res) {
-  conditions = {
-    "Type": "Ready",
-    "Status": "True"
-  }
+  conditions = [
+    {
+      "Type": "Ready",
+      "Status": "True",
+      "LastHeartbeatTime": new Date(),
+      "LastTransitionTime": new Date(),
+      "Reason": "KubeletReady",
+      "Message": "Kubelet is ready."
+    },
+    {
+      "Type": "NotReady",
+      "Status": "False",
+      "LastHeartbeatTime": new Date(),
+      "LastTransitionTime": new Date(),
+      "Reason": "KubeletNotReady",
+      "Message": "Kubelet is not ready."
+    }
+  ]
   res.json(conditions)
 })
 
