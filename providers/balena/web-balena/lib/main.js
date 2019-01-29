@@ -48,8 +48,8 @@ app.get('/capacity', function (req, res) {
 // Should be implemented in order not to panic
 app.get('/nodeConditions', function (req, res) {
   conditions = {
-    "type": "Ready",
-    "status": "True"
+    "Type": "Ready",
+    "Status": "True"
   }
   res.json(conditions)
 })
