@@ -5,7 +5,8 @@
   "main": "./lib/main.js",
   "scripts": {
     "start": "node lib/main.js",
-    "test": "bmocha test/*.js"
+    "test": "bmocha test/*.js",
+    "buildPush": "docker build -t mbalamat/balena-kubelet . && docker push mbalamat/balena-kubelet"
   },
   "name": "web-balena",
   "version": "1.0.0",
