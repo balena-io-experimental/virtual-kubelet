@@ -70,10 +70,10 @@ app.get('/nodeConditions', function (req, res) {
 
 // Should be implemented in order not to panic
 app.get('/nodeAddresses', function (req, res) {
-  nodeAddress = {
+  nodeAddress = [{
     "Type": "InternalIP",
     "Address": "1.2.3.4"
-  }
+  }]
   res.json(nodeAddress)
 })
 
