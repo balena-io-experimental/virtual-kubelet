@@ -19,6 +19,7 @@
     "/lib"
   ],
   "dependencies": {
+    "balena-sdk": "^11.6.3",
     "express": "^4.16.4"
   },
   "repository": {
