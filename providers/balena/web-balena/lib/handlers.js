@@ -7,4 +7,48 @@ function createPod() {
   return true
 }
 
-module.exports = { defaultRoute, createPod}
+function getPods() {
+  return [{}]
+}
+
+function getCapacity() {
+  return {
+    "cpu": "3",
+    "memory": "3Gi", 
+    "pods": "3"
+  }
+}
+
+function getNodeConditions() {
+  return [
+    {
+      "Type": "Ready",
+      "Status": "True",
+      "LastHeartbeatTime": new Date(),
+      "LastTransitionTime": new Date(),
+      "Reason": "KubeletReady",
+      "Message": "Kubelet is ready."
+    },
+    {
+      "Type": "NotReady",
+      "Status": "False",
+      "LastHeartbeatTime": new Date(),
+      "LastTransitionTime": new Date(),
+      "Reason": "KubeletNotReady",
+      "Message": "Kubelet is not ready."
+    }
+  ]
+}
+
+
+function getNodeAddresses() {
+  return [{
+    "Type": "InternalIP",
+    "Address": "1.2.3.4"
+  }]
+}
+
+
+module.exports = {
+  defaultRoute, createPod, getCapacity, getNodeConditions, getNodeAddresses, getPods
+}
