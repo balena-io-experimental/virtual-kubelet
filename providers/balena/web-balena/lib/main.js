@@ -15,7 +15,7 @@ app.put('/updatePod', function (req, res) {
 })
 
 app.delete('/deletePod', function (req, res) {
-  res.sendStatus(404)
+  res.sendStatus(200)
 })
 
 app.get('/getPod', function (req, res) {
