@@ -46,4 +46,5 @@ app.get('/nodeAddresses', function (req, res) {
   res.json(handlers.getNodeAddresses())
 })
 
+console.log(process.env.BALENA_API_KEY)
 app.listen(3000, () => console.log('Running on http://localhost:3000'))
