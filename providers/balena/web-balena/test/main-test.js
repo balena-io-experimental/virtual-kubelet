@@ -54,3 +54,21 @@ describe('Neccesary Virtual Kubelet functions', function() {
 		assert.deepStrictEqual(original, returned);
 	});
 });
+
+describe('Balena Platform Communication', function() {
+	it('should validate the container\'s BALENA_API_KEY', async () => {
+		var fakeAPIkey = 'thisIsAmockApiKey';
+		var fakeSdk = {
+			loginState: false,
+			auth: {
+				async loginWithToken(authToken) {
+					loginState = true;
+				},
+				async isLoggedIn() {
+					return loginState;
+				}
+			}
+		}
+		assert(await handlers.validateBalenaAPIkey(fakeSdk, fakeAPIkey) === true);
+	});
+});

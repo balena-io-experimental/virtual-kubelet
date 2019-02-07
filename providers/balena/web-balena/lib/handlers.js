@@ -40,7 +40,6 @@ function getNodeConditions() {
   ]
 }
 
-
 function getNodeAddresses() {
   return [{
     "Type": "InternalIP",
@@ -48,7 +47,11 @@ function getNodeAddresses() {
   }]
 }
 
+async function validateBalenaAPIkey(sdk, apiKey) {
+  sdk.auth.loginWithToken(apiKey);
+  return await sdk.auth.isLoggedIn();
+}
 
 module.exports = {
-  defaultRoute, createPod, getCapacity, getNodeConditions, getNodeAddresses, getPods
+  defaultRoute, createPod, getCapacity, getNodeConditions, getNodeAddresses, getPods, validateBalenaAPIkey
 }
