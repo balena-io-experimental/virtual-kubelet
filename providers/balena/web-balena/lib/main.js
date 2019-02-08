@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const handlers = require('./handlers')
+const balenaSDK = require('balena-sdk')
+const balena = balenaSDK()
 
 app.get('/', function (req, res) {
   res.send(handlers.defaultRoute())
@@ -46,5 +48,5 @@ app.get('/nodeAddresses', function (req, res) {
   res.json(handlers.getNodeAddresses())
 })
 
-console.log(process.env.BALENA_API_KEY)
+
 app.listen(3000, () => console.log('Running on http://localhost:3000'))
